@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdq0u6s017rqr"]
+[gd_scene load_steps=3 format=3 uid="uid://bdq0u6s017rqr"]
 
 [ext_resource type="PackedScene" uid="uid://gl4kbr24trqb" path="res://objects/arena.tscn" id="1_trvqh"]
+[ext_resource type="PackedScene" uid="uid://dx1rcndj4y5ky" path="res://objects/robot.tscn" id="2_sdqwm"]
 
 [node name="Main" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62658, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7.14606, 0)
 
 [node name="Arena" parent="." instance=ExtResource("1_trvqh")]
+
+[node name="Robot" parent="." instance=ExtResource("2_sdqwm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434515, 1.1977, 1.08216)

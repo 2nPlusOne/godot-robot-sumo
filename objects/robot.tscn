@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://dx1rcndj4y5ky"]
+[gd_scene load_steps=3 format=3 uid="uid://dx1rcndj4y5ky"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4jmdy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dxab1"]
 
 [node name="Robot" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_4jmdy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_dxab1")
+skeleton = NodePath("../CollisionShape3D")
