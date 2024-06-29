@@ -6,9 +6,11 @@
 [node name="Main" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7.14606, 0)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 4.93838, 6.46849)
 
 [node name="Arena" parent="." instance=ExtResource("1_trvqh")]
 
 [node name="Robot" parent="." instance=ExtResource("2_sdqwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434515, 1.1977, 1.08216)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

@@ -1,10 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://gl4kbr24trqb"]
+[gd_scene load_steps=6 format=3 uid="uid://gl4kbr24trqb"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n74dm"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_n7mrg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6021k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6phu"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5mlma"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8rg2"]
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="Arena" type="Node3D"]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-size = Vector3(10, 1, 10)
-material = SubResource("StandardMaterial3D_n74dm")
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_n7mrg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6021k")
+surface_material_override/0 = SubResource("StandardMaterial3D_u6phu")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_5mlma")
+surface_material_override/0 = SubResource("StandardMaterial3D_i8rg2")
