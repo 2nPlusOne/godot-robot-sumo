@@ -6,8 +6,9 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_dxab1"]
 
-[node name="Robot" type="Node3D"]
+[node name="Robot" type="Node3D" node_paths=PackedStringArray("rigidBody")]
 script = ExtResource("1_cq2t6")
+rigidBody = NodePath("RigidBody3D")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 
