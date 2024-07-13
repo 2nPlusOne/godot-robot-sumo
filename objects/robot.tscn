@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx1rcndj4y5ky"]
+[gd_scene load_steps=9 format=3 uid="uid://dx1rcndj4y5ky"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_cq2t6"]
+[ext_resource type="Material" uid="uid://dhn4gr13peo8s" path="res://materials/blue.tres" id="2_safx5"]
+[ext_resource type="Material" uid="uid://cgfbaidcki2nh" path="res://materials/default_white.tres" id="3_6x42s"]
+[ext_resource type="Material" uid="uid://cc6077eg1y2j4" path="res://materials/grey.tres" id="4_ms6hj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hmew4"]
 friction = 0.0
@@ -9,9 +12,15 @@ friction = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_dxab1"]
 
-[node name="Robot" type="Node3D" node_paths=PackedStringArray("rigidBody")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_peeel"]
+
+[node name="Robot" type="Node3D" node_paths=PackedStringArray("rigidBody", "player_material")]
 script = ExtResource("1_cq2t6")
 rigidBody = NodePath("RigidBody3D")
+player_material = NodePath("RigidBody3D/MeshInstance3D")
+dash_material = ExtResource("2_safx5")
+neutral_material = ExtResource("3_6x42s")
+tired_material = ExtResource("4_ms6hj")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_hmew4")
@@ -24,3 +33,4 @@ shape = SubResource("BoxShape3D_4jmdy")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("BoxMesh_dxab1")
 skeleton = NodePath("../CollisionShape3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_peeel")
